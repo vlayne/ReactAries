@@ -1,10 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
+import { SigninForm } from '../components'
 
 export default class Landing extends Component {
 
     render(){
         return(
-            <h1>LANDING COMPONENT</h1>
+            <Fragment>
+                <h1>LANDING COMPONENT</h1>
+                <SigninForm />
+            </Fragment>
         )
     }
 }
