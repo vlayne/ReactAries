@@ -14,15 +14,15 @@ export default class App extends Component {
     render(){
 
         return(
-            <Fragment>
-                <Navbar />
-                <Router>
+            <Router>
+                <Fragment>
+                    <Navbar />
                     <Switch>
                         <Route exact path="/" component={Landing} />
                         <Route path="/contact" component={Contact} />
                     </Switch>
-                </Router>
-            </Fragment>
+                </Fragment>
+            </Router>
         )
     }
 
