@@ -1,7 +1,8 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Landing from './pages/Landing'
-import Contact from './pages/Contact'
+import { Landing, Contact } from './pages'
+import { Navbar } from './components'
+
 
 
 export default class App extends Component {
@@ -13,12 +14,15 @@ export default class App extends Component {
     render(){
 
         return(
-            <Router>
-                <Switch>
-                    <Route exact path="/" component={Landing} />
-                    <Route path="/contact" component={Contact} />
-                </Switch>
-            </Router>
+            <Fragment>
+                <Navbar />
+                <Router>
+                    <Switch>
+                        <Route exact path="/" component={Landing} />
+                        <Route path="/contact" component={Contact} />
+                    </Switch>
+                </Router>
+            </Fragment>
         )
     }
 
