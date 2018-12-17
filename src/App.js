@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Landing from './pages/Landing'
+import Contact from './pages/Contact'
+
 
 export default class App extends Component {
 
@@ -14,7 +16,7 @@ export default class App extends Component {
             <Router>
                 <Switch>
                     <Route exact path="/" component={Landing} />
-                    <Route path="/contact" component={() => <h1>CONTACT</h1>} />
+                    <Route path="/contact" component={Contact} />
                 </Switch>
             </Router>
         )
