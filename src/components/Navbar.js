@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export default class Navbar extends Component {
 
@@ -7,10 +8,14 @@ export default class Navbar extends Component {
         return(
             <MainContainer>
                 <LeftPart>
-                    Accueil
+                    <Link to="/">
+                        Accueil
+                    </Link>
                 </LeftPart>
                 <RightPart>
-                    Contact
+                    <Link to="/contact">
+                        Contact
+                    </Link>
                 </RightPart>
             </MainContainer>
         )
@@ -20,9 +25,14 @@ export default class Navbar extends Component {
 const MainContainer = styled.div`
     border-bottom: 2px solid #dedede;
     padding: 1em;
+    display: flex;
+    justify-content: space-between;
 `
 const LeftPart = styled.div`
+    flex-grow: 1;
 `
-
+    
 const RightPart = styled.div`
+    flex-grow: 1;
+    text-align: right;
 `
