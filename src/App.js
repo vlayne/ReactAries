@@ -1,10 +1,11 @@
 import React, {Component} from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Landing from './pages/Landing'
 
 export default class App extends Component {
 
     state = {
-        app_name: "MON APPLI"
+        
     }
 
     render(){
@@ -12,7 +13,7 @@ export default class App extends Component {
         return(
             <Router>
                 <Switch>
-                    <Route exact path="/" component={() => <h1>LANDING</h1>} />
+                    <Route exact path="/" component={Landing} />
                     <Route path="/contact" component={() => <h1>CONTACT</h1>} />
                 </Switch>
             </Router>
