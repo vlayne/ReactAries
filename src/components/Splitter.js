@@ -8,13 +8,14 @@ export default class Splitter extends Component {
     }
 
     render(){
+        const {leftContent, rightContent} = this.props
         return(
-            <MainContainer>
-                <LeftPart>
-                    <h1>LEFT</h1>
+            <MainContainer {...this.props}>
+                <LeftPart {...this.props}>
+                    <Title>{leftContent}</Title>
                 </LeftPart>
-                <RightPart>
-                    <h1>RIGHT</h1>
+                <RightPart {...this.props}>
+                    <Title>{rightContent}</Title>
                 </RightPart>
             </MainContainer>
         )
@@ -24,17 +25,38 @@ export default class Splitter extends Component {
 const MainContainer = styled.div`
     width: 100%;
     display: flex;
-    min-height: 200vh;
+    height: ${props => props.height};
+    min-height: ${props => props.height ? props.height : "100vh"};
 `
 
 const LeftPart = styled.div`
-    background-color: green;
+    background-color: ${props => props.backgroundLeft};
+    background-image: url(${props => props.imageLeft});
     height: 100%;
-    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 3em;
 `
 
 const RightPart = styled.div`
-    background-color: red;
+    background-color: ${props => props.backgroundRight};
+    background-image: url(${props => props.imageRight});
     height: 100%;
-    flex-grow: 1;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 3em;
+`
+
+const Title = styled.h1`
+    font-size: ${props => props.bigTitle ? "7em" : "5em"};
 `
