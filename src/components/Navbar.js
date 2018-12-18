@@ -8,14 +8,17 @@ export default class Navbar extends Component {
         return(
             <MainContainer>
                 <LeftPart>
-                    <Link to="/">
+                    <CustomLink to="/">
                         Accueil
-                    </Link>
+                    </CustomLink>
                 </LeftPart>
                 <RightPart>
-                    <Link to="/contact">
+                    <CustomLink to="/signup">
+                        Inscription
+                    </CustomLink>
+                    <CustomLink to="/contact">
                         Contact
-                    </Link>
+                    </CustomLink>
                 </RightPart>
             </MainContainer>
         )
@@ -35,4 +38,7 @@ const LeftPart = styled.div`
 const RightPart = styled.div`
     flex-grow: 1;
     text-align: right;
+`
+const CustomLink = styled(Link)`
+    margin: 0 1em;
 `
