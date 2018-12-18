@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Landing, Contact } from './pages'
+import { Landing, Contact, Signup } from './pages'
 import { Navbar } from './components'
 
 
@@ -20,6 +20,7 @@ export default class App extends Component {
                     <Switch>
                         <Route exact path="/" component={Landing} />
                         <Route path="/contact" component={Contact} />
+                        <Route path="/signup" component={Signup} />
                     </Switch>
                 </Fragment>
             </Router>

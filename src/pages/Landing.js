@@ -4,7 +4,7 @@ import styled from 'styled-components'
 export default class Landing extends Component {
 
     state = {
-        time: 120
+        time: 10
     }
 
     componentDidMount(){
