@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
-import { SigninForm } from '../components'
-const styled = React.lazy(() => import('styled-components'))
+import { Splitter } from '../components'
+
+
 export default class Landing extends Component {
 
     state = {
@@ -9,9 +10,9 @@ export default class Landing extends Component {
     render(){
 
         return(
-            <div>
-                <p>LANDING</p>
-            </div>
+            <Fragment>
+                <Splitter />
+            </Fragment>
         )
     }
 }

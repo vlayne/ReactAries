@@ -4,9 +4,21 @@ import { Link } from 'react-router-dom'
 
 export default class Navbar extends Component {
 
+    state = {
+
+    }
+
+    componentDidMount(){
+        document.addEventListener('scroll', () => {
+            this.setState({scroll: window.scrollY})
+        })
+    }
+
     render(){
+        const {scroll} = this.state
+
         return(
-            <MainContainer>
+            <MainContainer scroll={scroll}>
                 <LeftPart>
                     <CustomLink main to="/">
                         J.
@@ -27,10 +39,17 @@ export default class Navbar extends Component {
 }
 
 const MainContainer = styled.div`
-    border-bottom: 2px solid #dedede;
     padding: 1em;
     display: flex;
     justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: ${props => props.scroll ? "white" : ""};
+    border-bottom: ${props => props.scroll ? "2px solid #dedede" : ""};
+
 `
 const LeftPart = styled.div`
     flex-grow: 1;
