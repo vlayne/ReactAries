@@ -8,14 +8,26 @@ export default class Splitter extends Component {
     }
 
     render(){
-        const {leftContent, rightContent} = this.props
+        const {leftContent, rightContent, leftDetails, rightDetails, detailsLabel} = this.props
         return(
             <MainContainer {...this.props}>
                 <LeftPart {...this.props}>
                     <Title>{leftContent}</Title>
+                    {leftDetails &&
+                        <Details rightAlign>
+                            <DetailsLabel>{detailsLabel ? detailsLabel : "Réalisé le"}</DetailsLabel>
+                            <DetailsText>{leftDetails}</DetailsText>
+                        </Details>
+                    }
                 </LeftPart>
                 <RightPart {...this.props}>
                     <Title>{rightContent}</Title>
+                    {rightDetails &&
+                        <Details leftAlign>
+                            <DetailsLabel>{detailsLabel ? detailsLabel : "Réalisé le"}</DetailsLabel>
+                            <DetailsText>{rightDetails}</DetailsText>
+                        </Details>
+                    }
                 </RightPart>
             </MainContainer>
         )
@@ -30,6 +42,7 @@ const MainContainer = styled.div`
 `
 
 const LeftPart = styled.div`
+    position: relative;
     background-color: ${props => props.backgroundLeft};
     background-image: url(${props => props.imageLeft});
     height: 100%;
@@ -44,6 +57,7 @@ const LeftPart = styled.div`
 `
 
 const RightPart = styled.div`
+    position: relative;
     background-color: ${props => props.backgroundRight};
     background-image: url(${props => props.imageRight});
     height: 100%;
@@ -59,4 +73,28 @@ const RightPart = styled.div`
 
 const Title = styled.h1`
     font-size: ${props => props.bigTitle ? "7em" : "5em"};
+`
+
+const Details = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    background-color: #453939;
+    color: white;
+    height: 6em;
+    width: 25em;
+    padding: 1em;
+    bottom: 7em;
+    right: ${props => props.rightAlign && "-7em"};
+    left: ${props => props.leftAlign && "-7em"};
+`
+
+const DetailsLabel = styled.div`
+    font-weight: bold;
+`
+
+const DetailsText = styled.div`
+
 `

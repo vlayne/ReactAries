@@ -18,12 +18,14 @@ export default class Landing extends Component {
             if(index % 2 == 0){
                 return {
                     imageLeft: "http://image.tmdb.org/t/p/original/" + movie.poster_path,
-                    rightContent: movie.title
+                    rightContent: movie.title,
+                    leftDetails: movie.release_date
                 }
             }else{
                 return {
                     imageRight: "http://image.tmdb.org/t/p/original/" + movie.poster_path,
-                    leftContent: movie.title
+                    leftContent: movie.title,
+                    rightDetails: movie.release_date
                 }
             }
         })

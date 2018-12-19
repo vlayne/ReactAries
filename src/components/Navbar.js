@@ -39,6 +39,7 @@ export default class Navbar extends Component {
 }
 
 const MainContainer = styled.div`
+    z-index: 1000;
     padding: 1em;
     display: flex;
     justify-content: space-between;
