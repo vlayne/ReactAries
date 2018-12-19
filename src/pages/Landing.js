@@ -1,26 +1,44 @@
 import React, { Component, Fragment } from 'react'
 import { Splitter } from '../components'
 
-
 export default class Landing extends Component {
 
     state = {
+        movies: []
+    }
+
+
+    async componentDidMount(){
+        let response = await fetch('https://api.themoviedb.org/3/discover/movie?api_key=b92715922f04621de38d69cf55169453');
+        let data = await response.json();
+        console.log('movies', data)
+
+        // Préparation movies
+        const movies = data.results.map((movie, index) => {
+            if(index % 2 == 0){
+                return {
+                    imageLeft: "http://image.tmdb.org/t/p/original/" + movie.poster_path,
+                    rightContent: movie.title
+                }
+            }else{
+                return {
+                    imageRight: "http://image.tmdb.org/t/p/original/" + movie.poster_path,
+                    leftContent: movie.title
+                }
+            }
+        })
+        this.setState({movies})
     }
 
     render(){
+        const {movies} = this.state
 
         return(
             <Fragment>
-                <Splitter
-                    leftContent={<span>Jimmy<br/>la plus chaude des<br/>boissons froides</span>}
-                    imageRight="https://i.stack.imgur.com/bf7tS.jpg"
-                    backgroundLeft="#dedede"
-                />
-                <Splitter
-                    height="50vh"
-                    rightContent={<span>Hugh Jackman<br/>Comment il vit sa descente</span>}
-                    imageLeft="https://cdn-images-1.medium.com/max/1600/1*way-yv9effv2b7PKZeUDMA.png"
-                />
+                {movies.map((part, index) => {
+                    return <Splitter {...part}/>
+                })}
+                
             </Fragment>
         )
     }
