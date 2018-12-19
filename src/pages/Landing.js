@@ -34,7 +34,6 @@ export default class Landing extends Component {
 
     render(){
         const {movies} = this.state
-
         return(
             <Fragment>
                 {movies.map((part, index) => {

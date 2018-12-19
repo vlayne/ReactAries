@@ -1,15 +1,13 @@
 import React, {Component, Fragment, Suspense} from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Landing, Contact, Signup } from './pages'
+import { Landing, Contact, AboutMe } from './pages'
 import { Navbar } from './components'
 
 
 
 export default class App extends Component {
 
-    state = {
-        
-    }
+    state = {}
 
     render(){
 
@@ -21,7 +19,7 @@ export default class App extends Component {
                         <Switch>
                             <Route exact path="/" component={Landing} />
                             <Route path="/contact" component={Contact} />
-                            <Route path="/signup" component={Signup} />
+                            <Route path="/a-propos" component={AboutMe} />
                         </Switch>
                     </Suspense>
                 </Fragment>

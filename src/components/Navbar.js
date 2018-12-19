@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom'
 
 export default class Navbar extends Component {
 
-    state = {
-
-    }
+    state = {}
 
     componentDidMount(){
         document.addEventListener('scroll', () => {
@@ -21,12 +19,12 @@ export default class Navbar extends Component {
             <MainContainer scroll={scroll}>
                 <LeftPart>
                     <CustomLink main to="/">
-                        J.
+                        Y.
                     </CustomLink>
                     <CustomLink to="/projects">
                         Projets
                     </CustomLink>
-                    <CustomLink to="/apropos">
+                    <CustomLink to="/a-propos">
                         A propos
                     </CustomLink>
                     <CustomLink to="/contact">
@@ -63,5 +61,5 @@ const RightPart = styled.div`
 const CustomLink = styled(Link)`
     margin: 0 1em;
     font-weight: ${props => props.main ? "900" : ""};
-    font-size: ${props => props.main ? "1.2em" : ""};
+    font-size: ${props => props.main ? "1.5em" : "1.2em"};
 `

@@ -39,6 +39,7 @@ const MainContainer = styled.div`
     display: flex;
     height: ${props => props.height};
     min-height: ${props => props.height ? props.height : "100vh"};
+    max-height: 35em;
 `
 
 const LeftPart = styled.div`
@@ -51,7 +52,7 @@ const LeftPart = styled.div`
     align-items: center;
     flex: 1;
     background-position: center;
-    background-size: cover;
+    background-size: 70em auto;
     background-repeat: no-repeat;
     padding: 3em;
 `
@@ -60,13 +61,14 @@ const RightPart = styled.div`
     position: relative;
     background-color: ${props => props.backgroundRight};
     background-image: url(${props => props.imageRight});
+    background-size: 70em;
     height: 100%;
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     background-position: center;
-    background-size: cover;
+    background-size: 70em auto ;
     background-repeat: no-repeat;
     padding: 3em;
 `
